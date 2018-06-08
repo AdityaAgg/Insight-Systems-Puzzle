@@ -1,9 +1,9 @@
 # Insight DevOps Engineering Systems Puzzle
 
 ## Modifications/Steps
-1. Challenge Attempt Documentation[system_puzzle_steps.md]
+1. [Challenge Attempt Documentation](system_puzzle_steps.md)
   _I may edit it more later, but I wanted to submit it now because I did what I think should be the baseline requirements!_
-  
+
 ## Table of Contents
 1. [Understanding the puzzle](README.md#understanding-the-puzzle)
 2. [Introduction](README.md#introduction)
