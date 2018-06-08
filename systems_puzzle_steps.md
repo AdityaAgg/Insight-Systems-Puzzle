@@ -17,4 +17,6 @@
 2. Followed logs for python flask application in a command line interface. docker logs -f flaskapp_name
 
 3. Created a few entries and then ran Postgres bash. After running postgres bash, checked to see if entries were being put into db correctly
-  using psql command line interface
+  using psql command line interface.
+
+4. Entries were being put correctly. So looked through function querying data. noticed that objects were being returned in query but data was not retrieved because we were returning the object list. By iterating through results, unpacked data from each object into string and displayed it on return.
