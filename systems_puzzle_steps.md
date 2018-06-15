@@ -27,9 +27,10 @@
 
 ~1. Understand why query.all() didn't work where as iterating through model list did.~
   * Because \_\_repr\_\_ function is not defined appropriately in the items class and that is what is used when printing a list. Defined to     instead to return object.
-  
+
 ~2. Return results as json list.~
 
 2. Understand flask and sqlalchemy a bit more.
 
-3. Understand why port 5001 doesn't need to be changed to 5000 for the .yml file and dockerfile.
+~3. Understand why port 5001 doesn't need to be changed to 5000 for the .yml file and dockerfile.~
+  * While I am not sure I am comfortable with every detail just yet, the exposing of port 5001 in the DockerFile seems extraneous. EXPOSE is supposed to make a port visible to the external network. However the flask app should not be visible to the external network and instead should be accessed through nginx. Nonetheless, I also realized I could change the flask app to run on port 5001 instead of port 5000 and revert the nginx configuration file back to its original state. The intent of the original author seems to put the docker application on port 5001 and thus I have made this modification.

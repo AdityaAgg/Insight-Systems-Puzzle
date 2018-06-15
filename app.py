@@ -39,4 +39,4 @@ def output_item_json(result):
     return"{\"name\":\""+str(result.name) + "\",\"quantity\":" + str(result.quantity) + ",\"description\":\"" + str(result.description) + "\" ,\"date_added\":\""+ str(result.date_added) + "\"}"
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', port=5001)
