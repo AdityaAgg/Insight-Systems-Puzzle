@@ -27,6 +27,7 @@
 
 ~1. Understand why query.all() didn't work where as iterating through model list did.~
   * Because \_\_repr\_\_ function is not defined appropriately in the items class and that is what is used when printing a list. Defined to     instead to return object.
+  
 ~2. Return results as json list.~
 
 2. Understand flask and sqlalchemy a bit more.
