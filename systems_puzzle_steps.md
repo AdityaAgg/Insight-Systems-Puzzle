@@ -21,13 +21,14 @@
 
 4. Entries were being put correctly. So looked through function querying data. noticed that objects were being returned in query but data was not retrieved because we were returning the object list. By iterating through results, unpacked data from each object into string and displayed it on return.
 
+5. Return results as json list.
 
 ## Further TODOs
 
 1. Understand why query.all() didn't work where as iterating through model list did.
 
-2. Return results as json list.
+~2. Return results as json list.~
 
-3. Understand flask and sqlalchemy a bit more.
+2. Understand flask and sqlalchemy a bit more.
 
-4. Understand why port 5001 doesn't need to be changed to 5000 for the .yml file and dockerfile. 
+3. Understand why port 5001 doesn't need to be changed to 5000 for the .yml file and dockerfile.
