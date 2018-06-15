@@ -5,6 +5,7 @@ from flask import Flask, render_template, redirect, url_for
 from forms import ItemForm
 from models import Items
 from database import db_session
+import json
 
 app = Flask(__name__)
 app.secret_key = os.environ['APP_SECRET_KEY']
@@ -24,23 +25,22 @@ def add_item():
 @app.route("/success")
 def success():
     results = []
-
     qry = db_session.query(Items)
     results = qry.all()
     results_str = ""
     final_item = None
+    results_obj = []
     for result in results:
-        results_str += output_item(result)
         final_item = result
-
-    results_str += "<br>"
-    results_str += "Item Bought: <br>"
-    results_str += output_item(final_item)
-
-    return results_str
+        res = json.loads(output_item_json(result))
+        results_obj.append(res)
+    return json.dumps(results_obj)
 
 def output_item(result):
     return repr(result.name).rjust(15) + repr(result.quantity).rjust(6) + repr(result.description).rjust(30) + str(result.date_added).rjust(20) + "<br>"
+
+def output_item_json(result):
+    return"{\"name\":\""+str(result.name) + "\",\"quantity\":" + str(result.quantity) + ",\"description\":\"" + str(result.description) + "\" ,\"date_added\":\""+ str(result.date_added) + "\"}"
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
