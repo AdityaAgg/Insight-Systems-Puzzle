@@ -10,6 +10,8 @@
 
 3. I modified the flaskapp.conf file which has the configuration for nginx interacting with the flaskapp server. I changed http://flaskapp:5001 to http://flaskapp:5000. Then I reloaded the configuration through `nginx -s reload` inside the bash shell for the nginx docker container. then I hit the web page again on my browser and found that I could see the form. This also makes sense because the default port that flask app starts on in 5000.
 
+4. Reverted back to port 5001 after making flaskapp run on port 5001.
+
 ## Error 2
 
 1. Changed the environment to development by adding `FLASK_ENV=development` in `env_file`
