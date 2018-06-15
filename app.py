@@ -14,7 +14,6 @@ app.secret_key = os.environ['APP_SECRET_KEY']
 def add_item():
     form = ItemForm()
     if form.validate_on_submit():
-        print("Name: %s Quantity: %s Description: %s  \n" %(form.name.data, form.quantity.data, form.description.data))
         item = Items(name=form.name.data, quantity=form.quantity.data, description=form.description.data, date_added=datetime.datetime.now())
 
         db_session.add(item)
@@ -27,11 +26,8 @@ def success():
     results = []
     qry = db_session.query(Items)
     results = qry.all()
-    results_str = ""
-    final_item = None
     results_obj = []
     for result in results:
-        final_item = result
         res = json.loads(output_item_json(result))
         results_obj.append(res)
     return json.dumps(results_obj)
